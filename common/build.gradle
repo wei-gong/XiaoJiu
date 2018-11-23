@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //不使用默认发布方式，其他库依赖本库时配置发布方式，防止BuildConfig.DEBUG总是false
+    //releaseImplementation project(path: ':common', configuration: 'release')
+    //debugImplementation project(path: ':common', configuration: 'debug')
+    publishNonDefault true
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "com.android.support:appcompat-v7:$supportLibraryVersion"
+    api "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    api "pub.devrel:easypermissions:$easyPermissions"
+}
