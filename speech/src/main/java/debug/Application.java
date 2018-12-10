@@ -1,5 +1,7 @@
 package debug;
 
+import android.content.Context;
+
 import com.qtec.common.base.BaseApplication;
 
 /**
@@ -7,4 +9,5 @@ import com.qtec.common.base.BaseApplication;
  */
 
 public class Application extends BaseApplication {
+
 }

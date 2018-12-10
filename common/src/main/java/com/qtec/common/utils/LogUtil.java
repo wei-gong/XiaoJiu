@@ -4,7 +4,7 @@ import android.util.Log;
 import com.qtec.common.BuildConfig;
 
 /**
- * Log Util,print message with function stack.
+ * Log Util,print message with function stack,just like this:
  * [ Thread:main, at
  *      * cn.utils.MainActivity.onCreate(MainActivity.java:17)]
  * @author gongw

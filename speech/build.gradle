@@ -44,5 +44,4 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':common')
-    implementation 'com.github.zagum:SpeechRecognitionView:1.2.2'
 }

@@ -10,7 +10,7 @@ import com.qtec.common.base.BaseApplication;
  */
 public class ToastUtil {
 
-    private static Toast toast = Toast.makeText(BaseApplication.getContext(), "", Toast.LENGTH_SHORT);
+    private static Toast toast = Toast.makeText(BaseApplication.getBaseApplicationContext(), "", Toast.LENGTH_SHORT);
 
     public static void showShort(CharSequence message){
         toast.setText(message);
