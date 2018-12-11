@@ -81,9 +81,7 @@ public class WakeUpResult {
                 result.setDesc(json.optString("desc"));
             }
 
-        } catch (JSONException e) {
-            LogUtil.e(TAG, "Json parse error" + jsonStr);
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
 
         return result;

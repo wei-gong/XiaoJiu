@@ -13,6 +13,16 @@
 
         <application>
 
+            <meta-data android:name="com.baidu.speech.APP_ID"
+                android:value="14889959" />
+            <meta-data
+                android:name="com.baidu.speech.API_KEY"
+                android:value="7ALzvKGloG4wRP9dZoMaqqOu" />
+            <meta-data
+                android:name="com.baidu.speech.SECRET_KEY"
+                android:value="Lt6dSDAEMnBdOW2Gyl2bnPIGE0Qx0vp5" />
+
+                <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
         </application>
 
 </manifest>

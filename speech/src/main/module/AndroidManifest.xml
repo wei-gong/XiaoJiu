@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
 
+
     <application
         android:name="debug.Application"
         android:allowBackup="false"
@@ -20,12 +21,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data android:name="com.baidu.speech.APP_ID"
+            android:value="14889959" />
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="7ALzvKGloG4wRP9dZoMaqqOu" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="Lt6dSDAEMnBdOW2Gyl2bnPIGE0Qx0vp5" />
+
         <activity android:name="debug.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
 
     </application>
 
