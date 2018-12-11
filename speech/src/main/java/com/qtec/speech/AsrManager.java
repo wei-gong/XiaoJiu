@@ -19,19 +19,21 @@ public class AsrManager {
     private MyRecognizer recognizer;
     private MyWakeup wakeup;
     private MySynthesizer synthesizer;
-    private static volatile boolean isInitialized = false;
     private static AsrManager instance;
 
-    private AsrManager(){}
-
-
-    public static void initialize(Context context, String appId, String apiKey, String secretKey){
-        release();
-        instance = new AsrManager();
-        instance.recognizer = new MyRecognizer(context);
-        instance.wakeup = new MyWakeup(context);
-        instance.synthesizer = new MySynthesizer(context, appId, apiKey, secretKey);
+    private AsrManager(Context context, String appId, String apiKey, String secretKey){
+        recognizer = new MyRecognizer(context);
+        wakeup = new MyWakeup(context);
+        synthesizer = new MySynthesizer(context, appId, apiKey, secretKey);
     }
+
+
+    public static synchronized void initialize(Context context, String appId, String apiKey, String secretKey){
+        if(instance == null){
+            instance = new AsrManager(context, appId, apiKey, secretKey);
+        }
+    }
+
 
     public static boolean checkInitial(){
         if(instance == null){
@@ -86,7 +88,7 @@ public class AsrManager {
 
 
 
-    public static void release(){
+    public static synchronized void release(){
         if(!checkInitial()){
             return;
         }
@@ -100,6 +102,5 @@ public class AsrManager {
             instance.synthesizer.release();
         }
         instance = null;
-        isInitialized = false;
     }
 }
