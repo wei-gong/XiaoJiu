@@ -39,6 +39,7 @@ public class MyRecognizer {
         //init params here
         paramsPreferences = applicationContext.getSharedPreferences("recognizer_params", Context.MODE_PRIVATE);
         loadParams();
+        loadOfflineEngine();
         isInitialized = true;
         LogUtil.i(TAG, "recognizer initialized success.");
     }
@@ -76,6 +77,22 @@ public class MyRecognizer {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put(SpeechConstant.DECODER, 2);
         map.put(SpeechConstant.ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH, "assets:///baidu_speech_grammar.bsg");
+        String json = new JSONObject(map).toString();
+        // 加载离线命令词
+        // 没有ASR_KWS_LOAD_ENGINE这个回调表示失败，如缺少第一次联网时下载的正式授权文件。
+        recogEventManager.send(SpeechConstant.ASR_KWS_LOAD_ENGINE, json, null, 0, 0);
+        isOfflineEngineLoaded = true;
+    }
+
+    public void loadSlotDataForNlu(JSONObject jsonObject){
+        recogParams.params.put(SpeechConstant.SLOT_DATA, jsonObject.toString());
+    }
+
+    public void loadSlotDataForRecog(JSONObject jsonObject){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put(SpeechConstant.DECODER, 2);
+        map.put(SpeechConstant.ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH, "assets:///baidu_speech_grammar.bsg");
+        map.put(SpeechConstant.SLOT_DATA, jsonObject.toString());
         String json = new JSONObject(map).toString();
         // 加载离线命令词
         // 没有ASR_KWS_LOAD_ENGINE这个回调表示失败，如缺少第一次联网时下载的正式授权文件。

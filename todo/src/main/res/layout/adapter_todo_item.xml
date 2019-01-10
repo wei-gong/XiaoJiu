@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+        tools:srcCompat="@tools:sample/avatars"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="24sp"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="@+id/ivImage"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintEnd_toStartOf="@+id/tvAction"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                android:text="2018-12-30"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                />
+
+            <TextView
+                android:id="@+id/tvWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周四"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+                app:layout_constraintStart_toEndOf="@+id/tvDate"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+                app:layout_constraintStart_toEndOf="@+id/tvWeek"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:id="@+id/tvAction"
+        android:layout_width="56dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constrainedWidth="true"
+        android:text="TextViw"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

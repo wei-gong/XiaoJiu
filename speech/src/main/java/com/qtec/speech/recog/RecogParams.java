@@ -32,14 +32,14 @@ public class RecogParams {
         params.put(SpeechConstant.ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH,"assets:///baidu_speech_grammar.bsg");
         //与ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH参数一起使用后生效。 用于代码中动态扩展本地语义bsg文件的词条部分（bsg文件下载页面的左侧表格部分）
         //String（JSON格式）
-        JSONObject json = new JSONObject();
-        try {
-            json.put("name", new JSONArray().put("妈妈").put("老伍"))
-                    .put("appname", new JSONArray().put("手百").put("度秘"));
-            params.put(SpeechConstant.SLOT_DATA, json.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        JSONObject json = new JSONObject();
+//        try {
+//            json.put("name", new JSONArray().put("妈妈").put("老伍"))
+//                    .put("appname", new JSONArray().put("手百").put("度秘"));
+//            params.put(SpeechConstant.SLOT_DATA, json.toString());
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
 
         //	本地语义解析设置。必须设置ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH参数生效，无论网络状况，都可以有本地语义结果。并且本地语义结果会覆盖在线语义结果。本参数不控制在线语义输出，需要在线语义输出见PID参数
@@ -79,7 +79,7 @@ public class RecogParams {
         //是否需要语音音量数据回调，开启后有CALLBACK_EVENT_ASR_VOLUME事件回调
         //true 	需要音量数据回调
         //false	不需要音量数据回调
-        params.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, true);
+        params.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
         //说话开始的提示音 int：资源ID
         params.put(SpeechConstant.SOUND_START, R.raw.bdspeech_recognition_start);
         //说话结束的提示音 int：资源ID
