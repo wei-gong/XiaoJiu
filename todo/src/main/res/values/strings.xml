@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">todo</string>
+    <string name="my_todo">我的提醒</string>
+    <string name="finished_todo">已完成提醒</string>
+    <string name="clear_all">清空</string>
 </resources>

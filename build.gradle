@@ -23,6 +23,8 @@ buildscript {
 
         easyPermissions = "2.0.0"
         smartRefreshLayout = "1.1.0-alpha-18"
+        arouterApiVersion = "1.4.1"
+        annotationProcessor = "1.2.2"
     }
 
     repositories {

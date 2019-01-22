@@ -1,18 +1,20 @@
 package com.qtec.todo.ui
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
+import com.qtec.common.base.BaseAdapter
+import com.qtec.common.base.BaseViewHolder
 import com.qtec.todo.R
 import com.qtec.todo.Todo
 import com.qtec.todo.TodoModel
 import kotlinx.android.synthetic.main.activity_todo_list.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  *
@@ -26,28 +28,15 @@ class ActivityTodoList : AppCompatActivity() {
         setContentView(R.layout.activity_todo_list)
         todoRecyclerView.addItemDecoration(DividerItemDecoration(this@ActivityTodoList, DividerItemDecoration.VERTICAL))
         todoRecyclerView.layoutManager = LinearLayoutManager(this@ActivityTodoList, LinearLayoutManager.VERTICAL, false)
-        todoRecyclerView.adapter = TodoAdapter(TodoModel.getInstance().todoList)
+        todoRecyclerView.adapter = TodoAdapter(this@ActivityTodoList, R.layout.adapter_todo_item, TodoModel.getInstance().todoList)
     }
 
-    inner class TodoAdapter(private val datas : List<Todo>) : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
-        override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-            val view = LayoutInflater.from(this@ActivityTodoList).inflate(R.layout.adapter_todo_item, p0, false)
-            return ViewHolder(view)
-        }
-
-        override fun getItemCount(): Int {
-            return datas.size
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.title.text = datas[position].thingTodo
-        }
-
-        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val title: TextView = itemView.findViewById(R.id.tvTitle)
-            val date: TextView = itemView.findViewById(R.id.tvDate)
-            val week: TextView = itemView.findViewById(R.id.tvWeek)
-            val time: TextView = itemView.findViewById(R.id.tvTime)
+    inner class TodoAdapter(context: Context?, layoutRes: Int, datas: MutableList<Todo>?) : BaseAdapter<Todo>(context, layoutRes, datas) {
+        @SuppressLint("SimpleDateFormat")
+        override fun convertView(viewHolder: BaseViewHolder?, t: Todo?) {
+            viewHolder?.getView<TextView>(R.id.tvTitle)?.text = t?.thingTodo
+            viewHolder?.getView<TextView>(R.id.tvDate)?.text = SimpleDateFormat("yyyy-MM-dd HH:mm").format(t?.timeTodo?.let { Date(it) })
         }
     }
+
 }

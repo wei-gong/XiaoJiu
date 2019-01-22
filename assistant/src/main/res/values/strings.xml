@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Assistant</string>
+
+
+    <string name="goto_todo_list">查看提醒列表</string>
+
+    <string name="first_welcome">嗨，你想说什么？</string>
+    <string name="unknow_command">我不明白你说的是什么？</string>
+    <string name="null_command">你好像没有说话哦。</string>
+    <string name="network_unavailable">网络好像有问题，请先连接网络。</string>
+
+    <string-array name="say_sample">
+        <item>明天9点起床</item>
+        <item>提醒李明来201开会</item>
+        <item>提醒张伟10点半来201</item>
+    </string-array>
+
 </resources>

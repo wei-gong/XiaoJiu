@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class TodoModel {
 
+    private List<Todo> cachedTodoList;
+
     private static class InstanceHolder{
         private static TodoModel instance = new TodoModel();
     }
@@ -17,19 +19,26 @@ public class TodoModel {
         return InstanceHolder.instance;
     }
 
-    public List<Todo> getTodoList(){
-        List<Todo> todoList = new ArrayList<>();
+    private TodoModel(){
+        cachedTodoList = new ArrayList<>();
         for(int i=0;i<10;i++){
             Todo todo = new Todo.Builder().timeTodo(System.currentTimeMillis())
-                                            .thingsTodo("提醒" + i)
-                                            .build();
-            todoList.add(todo);
+                    .thingsTodo("提醒" + i)
+                    .build();
+            cachedTodoList.add(todo);
         }
-        return todoList;
+    }
+
+    public List<Todo> getTodoList(){
+        return cachedTodoList;
     }
 
     public void deleteTodo(Todo todo){
 
+    }
+
+    public void addTodo(Todo todo){
+        cachedTodoList.add(todo);
     }
 
 

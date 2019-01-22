@@ -15,6 +15,11 @@ android {
             versionCode 1
             versionName "1.0"
         }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME :project.getName() ]
+            }
+        }
     }
 
     sourceSets {
@@ -43,4 +48,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':common')
+    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.annotationProcessor}"
 }

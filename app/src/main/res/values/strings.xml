@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">XiaoJiu</string>
+
+    <string name="remind">提醒</string>
+    <string name="remind_description">包含定时提醒，即时提醒等</string>
+
 </resources>

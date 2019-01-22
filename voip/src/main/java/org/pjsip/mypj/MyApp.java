@@ -2,7 +2,7 @@ package org.pjsip.mypj;
 
 import android.util.Log;
 
-import com.im.qtec.utils.L;
+import com.qtec.common.utils.LogUtil;
 
 import org.pjsip.pjsua2.AccountConfig;
 import org.pjsip.pjsua2.BuddyConfig;
@@ -163,8 +163,7 @@ public class MyApp {
             my_cfg.accCfg.getVideoConfig().setAutoShowIncoming(false);
 
             MyAccount acc = addAcc(my_cfg.accCfg);
-            if (acc == null)
-                continue;
+            if (acc == null) {continue;}
 
 	    /* Add Buddies */
             for (int j = 0; j < my_cfg.buddyCfgs.size(); j++) {
@@ -193,7 +192,7 @@ public class MyApp {
             acc.create(cfg);
         } catch (Exception e) {
             acc = null;
-            L.e(TAG,"=========创建账号失败====》"+e);
+            LogUtil.e(TAG,"=========创建账号失败====》"+e);
             return null;
         }
 

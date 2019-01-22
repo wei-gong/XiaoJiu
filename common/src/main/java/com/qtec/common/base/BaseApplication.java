@@ -3,6 +3,8 @@ package com.qtec.common.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 
 /**
  * Base Application, all applications should extend this.
@@ -17,8 +19,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-
-
+        //init ARouter
+        ARouter.init(this);
     }
 
     public static Context getBaseApplicationContext(){
