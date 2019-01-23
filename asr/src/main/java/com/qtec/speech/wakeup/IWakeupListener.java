@@ -7,7 +7,6 @@ package com.qtec.speech.wakeup;
 
 public interface IWakeupListener {
 
-
     void onSuccess(String word, WakeUpResult result);
 
     void onStop();

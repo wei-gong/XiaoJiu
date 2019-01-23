@@ -1,1 +1,1 @@
-include ':app', ':speech', ':common', ':todo', ':router', ':assistant', ':voip'
+include ':app', ':asr', ':common', ':todo', ':router', ':assistant', ':voip'

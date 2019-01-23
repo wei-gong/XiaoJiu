@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/holo_blue_bright"
         android:gravity="center"
         android:maxWidth="260dp"
         android:minWidth="84dp"

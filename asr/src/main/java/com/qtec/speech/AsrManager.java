@@ -27,7 +27,6 @@ public class AsrManager {
         synthesizer = new MySynthesizer(context, appId, apiKey, secretKey);
     }
 
-
     public static synchronized void initialize(Context context, String appId, String apiKey, String secretKey){
         if(instance == null){
             instance = new AsrManager(context, appId, apiKey, secretKey);
@@ -85,8 +84,6 @@ public class AsrManager {
         }
         instance.wakeup.stop();
     }
-
-
 
     public static synchronized void release(){
         if(!checkInitial()){
